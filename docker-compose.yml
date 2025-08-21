@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: tellus-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_USER=tellus
+      - DATABASE_PASSWORD=tellus123
+      - DATABASE_NAME=tellus_db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - tellus-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: tellus-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: tellus
+      POSTGRES_PASSWORD: tellus123
+      POSTGRES_DB: tellus_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    networks:
+      - tellus-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: tellus-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - tellus-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  tellus-network:
+    driver: bridge
