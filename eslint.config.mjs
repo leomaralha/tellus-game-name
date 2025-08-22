@@ -15,7 +15,7 @@ export default tseslint.config(
     languageOptions: {
       globals: {
         ...globals.node,
-        ...globals.jest,
+        ...globals.vitest,
       },
       sourceType: 'commonjs',
       parserOptions: {
@@ -25,10 +25,26 @@ export default tseslint.config(
     },
   },
   {
-    rules: {
+ rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn'
+      'prettier/prettier': ['error', { endOfLine: 'lf' }],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+      'no-multi-spaces': ['error'],
+      'no-throw-literal': ['error'],
+      '@typescript-eslint/no-empty-object-type': 'warn',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          fixStyle: 'inline-type-imports',
+        },
+      ],
+      'no-console': ['warn', { allow: ['info', 'error'] }],
+      '@typescript-eslint/no-unsafe-call': 'off',
     },
   },
 );

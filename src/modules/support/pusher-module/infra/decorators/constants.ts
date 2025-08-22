@@ -1,0 +1,6 @@
+export const PUSHER_EVENT = '__PUSHER-EVENT__';
+export const PUSHER_SEND_GUARD = '__PUSHER-SEND-GUARD__';
+export const PUSHER_CHANNEL = '__PUSHER-CHANNEL__';
+export const PUSHER_SID_FACTORY = '__PUSHER-SID-FACTORY__';
+export const PUSHER_TOKEN_SECRET = '__PUSHER-TOKEN-SECRET__';
+export const MODULE_OPTIONS = '__PUSHER-MODULE_OPTIONS__';

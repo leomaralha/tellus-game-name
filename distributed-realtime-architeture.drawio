@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="j05WfeZzGgNTefFKhI0T" name="Page-1">
-        <mxGraphModel dx="2819" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2819" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -22,7 +22,7 @@
                 <mxCell id="10" style="edgeStyle=none;html=1;" parent="1" source="4" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="7">
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;" parent="1" source="4" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="PM2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.network_load_balancer;" parent="1" vertex="1">
@@ -77,6 +77,15 @@
                 </mxCell>
                 <mxCell id="23" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;" parent="1" vertex="1">
                     <mxGeometry x="614" y="610" width="50" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Game start setup&lt;/h1&gt;&lt;p&gt;User enter a username and hit ok.&lt;/p&gt;&lt;p&gt;Client send the username alongside socket id generated after a successfull connection to pusher.io&lt;/p&gt;&lt;p&gt;Server checks if the player already exists&amp;nbsp;&lt;/p&gt;&lt;p&gt;If there is a player with this username, bind the socketId to him and returns the userId to the client as a cookie&lt;/p&gt;&lt;p&gt;If there is no player, create one and do the same as above&lt;/p&gt;&lt;p&gt;client join the private channel &#39;private-&amp;lt;username&amp;gt;&#39; triggering the authentication flow and calling our endpoint &#39;pusher/&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;user-&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;auth&#39;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-810" y="80" width="270" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Play&lt;/h1&gt;&lt;div&gt;player selects a colaborator and client post it to our server&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Server apply validations&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-810" y="440" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Rules&lt;/h1&gt;&lt;p&gt;Rules only exists on server-side&lt;/p&gt;&lt;p&gt;For example, if the game mode is timed the server is responsible to send state changes that stops the game&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-810" y="590" width="180" height="230" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
