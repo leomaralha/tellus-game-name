@@ -6,7 +6,7 @@ import {
   type ClassTransformOptions,
 } from 'class-transformer';
 import { validateSync, type ValidationError } from 'class-validator';
-import { WrongCommandParametersError } from '../errors/validation-errors/wrong-command-parameters.js';
+import { WrongCommandParametersError } from '../errors/validation-errors/wrong-command-parameters';
 
 export type AnyFunction = (...args: unknown[]) => unknown;
 export type Serializable<T> = {

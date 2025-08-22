@@ -11,22 +11,5 @@
       "port": 9229,
       "restart": true
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug Current Test File",
-      "autoAttachChildProcesses": true,
-      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
-      "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
-      "args": [
-        "run",
-        "${relativeFile}",
-        "--hook-timeout=999999",
-        "--no-file-parallelism",
-        "--test-timeout=999999"
-      ],
-      "smartStep": true,
-      "console": "integratedTerminal"
-    }
   ]
 }
