@@ -17,3 +17,8 @@ How dynamic do you expect the rules of "The Name Game" to be? Will they change f
 What do you give more value? TDD first, or can I model my Domain entities and THEN write tests?
 
 Question about Tellus Digital and WillowTree
+
+Fuel AI is solving what kind of problem of the final users?
+I know the infra is hosted on GCP, What kind of resources do you guys use?
+Do you guys train your models by yourself? If so what kind of training are you guys using? Or there is no single answer that satisfies this question?
+Could I use Fuel Ai if I want? 
