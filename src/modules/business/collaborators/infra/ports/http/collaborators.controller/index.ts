@@ -1,3 +1,5 @@
+import { CreateCollaboratorsDto } from '@/modules/business/collaborators/application/dtos';
+import { ListCollaboratorsResult } from '@/modules/business/collaborators/application/query-handlers/list-collaborators/types';
 import {
   Body,
   Controller,
@@ -8,9 +10,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiQuery } from '@nestjs/swagger';
-import { CollaboratorFacadeService } from '../../../../application/services/collaborator.facade.service';
-import { CreateCollaboratorsDto } from '../../../../application/dtos';
-import { ListCollaboratorsResult } from '../../../../application/query-handlers/list-collaborators/types';
+import { CollaboratorFacadeService } from '../../../services/collaborator.facade.service';
 
 @Controller('collaborators')
 @ApiTags('Collaborators')

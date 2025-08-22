@@ -31,11 +31,13 @@ export abstract class AbstractPort extends Object {
       transformOpts ?? { excludeExtraneousValues: true },
     ) as InstanceType<T>;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const errors: ValidationError[] = validateSync(value);
 
     if (errors.length > 0) {
       throw new WrongCommandParametersError(errors);
     }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return value;
   }
 }

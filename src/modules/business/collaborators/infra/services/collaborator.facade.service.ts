@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { CreateCollaboratorsCommand } from '../command-handlers/import-collaborators.command';
+import { CreateCollaboratorsCommand } from '../../application/command-handlers/import-collaborators.command';
+import { TellusApiCollaboratorDto } from '../../application/dtos';
 import {
   ListCollaboratorsQuery,
   ListCollaboratorsResult,
-} from '../query-handlers/list-collaborators/types';
-import { TellusApiCollaboratorDto } from '../dtos';
+} from '../../application/query-handlers/list-collaborators/types';
 
 @Injectable()
 export class CollaboratorFacadeService {
@@ -14,14 +14,14 @@ export class CollaboratorFacadeService {
     private readonly queryBus: QueryBus,
   ) {}
 
-  async importCollaborators(
+  importCollaborators(
     collaborators: TellusApiCollaboratorDto[],
   ): Promise<{ success: boolean; error?: string }> {
     const command = CreateCollaboratorsCommand.create({ collaborators });
     return this.commandBus.execute(command);
   }
 
-  async listCollaborators(
+  listCollaborators(
     take: number,
     skip: number,
   ): Promise<ListCollaboratorsResult> {

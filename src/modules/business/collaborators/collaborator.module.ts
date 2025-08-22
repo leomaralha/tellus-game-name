@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CqrsModule } from '@nestjs/cqrs';
-import { CollaboratorModuleEntities } from './dependency-injection/database-entities';
+import { CollaboratorModuleEntities } from './infra/dependency-injection/database-entities';
 import {
   CommandHandlers,
   QueryHandlers,
   SharedProviders,
-} from './dependency-injection/providers';
+} from './infra/dependency-injection/providers';
 import { CollaboratorController } from './infra/ports/http/collaborators.controller';
 
 @Module({

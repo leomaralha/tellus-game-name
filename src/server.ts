@@ -60,9 +60,9 @@ export class ServerApplication {
   }
 
   private buildAPIDocumentation(app: NestExpressApplication): void {
-    const title = 'LiveClin';
+    const title = 'Tellus';
     const version = '0.0.1';
-    const description = 'LiveClin API documentation';
+    const description = 'The Game Name documentation';
 
     const options: Omit<OpenAPIObject, 'paths'> = new DocumentBuilder()
       .setTitle(title)

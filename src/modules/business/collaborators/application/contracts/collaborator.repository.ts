@@ -4,7 +4,9 @@ export type IListCriteria = {
   exceptIds?: string[];
 };
 
+export type CreateCollaboratorDTO = Omit<Collaborator, 'id'>;
+
 export abstract class ICollaboratorRepository {
-  abstract save(collaborators: Collaborator[]): Promise<void>;
+  abstract save(collaborators: CreateCollaboratorDTO[]): Promise<void>;
   abstract list(criteria: IListCriteria): Promise<Collaborator[]>;
 }

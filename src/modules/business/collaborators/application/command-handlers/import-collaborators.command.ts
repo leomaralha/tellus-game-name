@@ -1,21 +1,25 @@
-import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
-import { type Collaborator } from '../../domain/aggregates/collaborators';
-import { ICollaboratorRepository } from '../contracts/collaborator.repository';
-import { Logger } from '@nestjs/common';
-import { TellusApiCollaboratorDto } from '../dtos';
 import { AbstractPort } from '@/common/port/abstract-port';
+import { Logger } from '@nestjs/common';
+import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
 import { Expose, Type } from 'class-transformer';
+import { IsArray, ValidateNested } from 'class-validator';
+import {
+  CreateCollaboratorDTO,
+  ICollaboratorRepository,
+} from '../contracts/collaborator.repository';
+import { TellusApiCollaboratorDto } from '../dtos';
 
 export class CreateCollaboratorsCommand extends AbstractPort {
   @Expose()
+  @IsArray()
+  @ValidateNested({ each: true })
   @Type(() => TellusApiCollaboratorDto)
   public readonly collaborators: TellusApiCollaboratorDto[];
 }
 
 export class RawCollaboratorDataMapper {
-  toCollaborator(raw: TellusApiCollaboratorDto): Collaborator {
+  toCollaborator(raw: TellusApiCollaboratorDto): CreateCollaboratorDTO {
     return {
-      id: raw.id,
       firstName: raw.firstName,
       lastName: raw.lastName,
       jobTitle: raw.jobTitle ?? 'Unknown Position',

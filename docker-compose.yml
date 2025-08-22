@@ -6,6 +6,7 @@ services:
     container_name: tellus-app
     ports:
       - "3000:3000"
+      - "9229:9229"
     volumes:
       - .:/app
       - /app/node_modules

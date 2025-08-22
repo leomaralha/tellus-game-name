@@ -199,7 +199,6 @@ export class CreateCollaboratorsDto {
   @ApiProperty({
     description: 'Array of collaborators to import',
     type: [TellusApiCollaboratorDto],
-    isArray: true,
   })
   @IsArray()
   @ValidateNested({ each: true })
